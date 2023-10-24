@@ -1,12 +1,22 @@
 saved_password = ''
-saved_password_list = []
+saved_password_array = []
+
 
 def encode(password):
     """Encodes a password and stores a given password"""
     global saved_password  # this function will access the variable in the global namespace
-    global  saved_password_list
-    saved_password_list = [(int(token) + 3) for token in password]  # turn every character into a digit and increase by 3
-    saved_password = ''.join(str(char) for char in saved_password_list)  # convert list of digits back to password string
+    global saved_password_array
+    saved_password_array = [(int(token) + 3) for token in password]  # turn every char into a digit and increase by 3
+
+    for char in saved_password_array:
+
+        new_char = str(char)
+
+        if len(new_char) == 1:
+            saved_password = ''.join([saved_password, new_char])  # convert list of digits back to password string
+
+        else:
+            saved_password = ''.join([saved_password, new_char[-1]])
 
 
 def decode(encoded_password):
@@ -38,7 +48,7 @@ def main():
 
         elif user_selection == '2':
             print('The encoded password is ' + saved_password + ', and the original password is ' +
-                  decode(saved_password_list) + '.')
+                  decode(saved_password_array) + '.')
         elif user_selection == '3':
             break
         else:

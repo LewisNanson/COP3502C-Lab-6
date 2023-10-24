@@ -22,13 +22,13 @@ def main():
         print('')
 
         user_selection = input('Please enter an option: ')
-        if user_selection == 1:
+        if user_selection == '1':
             user_password = input('Please enter your password to encode: ')
             encode(user_password)
             print('Your password has been encoded and stored!')
-        elif user_selection == 2:
+        elif user_selection == '2':
             print('The encoded password is ' + saved_password + ', and the original password is ' + decode() + '.')
-        elif user_selection == 3:
+        elif user_selection == '3':
             break
         else:
             print('Invalid selection.')
